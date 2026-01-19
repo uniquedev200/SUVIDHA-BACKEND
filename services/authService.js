@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 export function sendOTP(phone,otp){
-    axios.post('http://192.168.1.7:8080/send-sms',{
+    axios.post(process.env.SMS_GATEWAY,{
         phone:phone.toString(),
         message:`Your OTP for Goverment Kiosk Services is:${otp.toString()}`
     })
