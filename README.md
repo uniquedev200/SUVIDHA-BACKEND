@@ -16,7 +16,7 @@ Completed HTTPS routes and TLS have been tested locally using mkcert certificate
   - Authentication service routes completed
   - Gateway-compatible routing structure
 
- **Billing & Payments (Initial Implementation)**
+- **Billing & Payments (Initial Implementation)**
   - Billing list route implemented with status-based filtering
   - Payment list route implemented with status-based filtering
   - Secure access enforced via JWT middleware
