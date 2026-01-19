@@ -56,29 +56,25 @@ The following features are planned and will be developed on top of the existing 
 ## Planned API Routes
 
 ### Billing Service
-- `GET /bills/list`
-- `GET /bills/list?type=`
-- `GET /bills/list?ID=`
+- `GET /bills/list?status=`
 
 ### Complaints Service
 - `GET /complaints/list`
-- `GET /complaints/fetch`
 
 ### Alerts Service
 - `GET /alerts`
 
 ### Documents Service
 - `GET /docs/list`
-- `GET /docs/fetch?ID=`
 
 ### Reports Service
 - `GET /reports/list`
-- `GET /reports/fetch?ID=`
 
 ### Payments & Receipts
-- `POST /payment/initiate?ID=`
-- `GET /receipts/fetch?ID=`
-
+- `GET /payment/list?status=`
+- `GET /receipts/fetch`
+- `POST /payment/initiate`
+  
 ### AI Services
 - `GET /bills/insights/type`
 - `GET /schemes/recommendations`
