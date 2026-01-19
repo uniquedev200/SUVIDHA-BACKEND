@@ -1,7 +1,9 @@
 ## Backend Development Status
 
 The SUVIDHA backend is currently in active development.  
-The authentication using goverment-IDs and transport security implementation have been completed.Completed HTTPS routes and TLS have been tested locally using mkcert certificates
+The authentication using goverment-IDs and transport security implementation have been completed,**billing and payment listing APIs have now been implemented and tested using mock data sources**.
+
+Completed HTTPS routes and TLS have been tested locally using mkcert certificates
 
 ### Completed Work
 
