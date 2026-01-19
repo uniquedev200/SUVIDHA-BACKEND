@@ -1,7 +1,7 @@
 ## Backend Development Status
 
 The SUVIDHA backend is currently in active development.  
-The authentication using goverment-IDs and transport security implementation have been completed,**billing and payment listing APIs have now been implemented and tested using mock data sources**.
+The authentication using goverment-IDs and transport security implementation have been completed,**billing and payment listing routes have now been implemented and tested using mock data sources**.
 
 Completed HTTPS routes and TLS have been tested locally using mkcert certificates
 
@@ -15,6 +15,12 @@ Completed HTTPS routes and TLS have been tested locally using mkcert certificate
 - **Route Logic**
   - Authentication service routes completed
   - Gateway-compatible routing structure
+
+ **Billing & Payments (Initial Implementation)**
+  - Billing list route implemented with status-based filtering
+  - Payment list route implemented with status-based filtering
+  - Secure access enforced via JWT middleware
+  - Routes tested against mock billing and payment data sources
 
 - **Cookie & Session Security**
   - JWTs issued via HttpOnly and Secure cookies
@@ -85,8 +91,9 @@ The following features are planned and will be developed on top of the existing 
 
 The SUVIDHA backend is being developed with a strong focus on security, scalability, and production readiness.  
 
-Currently,the secure auth using JWT and otp,HTTPS and TLS have been completed.This ensures a secure access to the kiosk services with any goverment ID and registered phone number using OTP.
-With the security part handled , now we will implement the other routes to connect with our mock databases and ai models and seamlessly deliver needed data to the frontend of the kiosk application.
+The secure auth using JWT and otp,HTTPS and TLS have been completed.This ensures a secure access to the kiosk services with any goverment ID and registered phone number using OTP.
+
+**Update**:Finished initial implementing and testing of JWT-secured bills and payments listing with status-based filtering using mock database
 
 This backend is being designed to try and provide a secure and easy access to goverment services via the kiosk to all citizens
 
