@@ -111,6 +111,6 @@ The secure auth using JWT and OTP, HTTPS, and TLS have been completed. This ensu
 
 Finished initial implementing and testing of JWT-secured bills and payments listing with status-based filtering using mock database.
 
-**Update:**Finished initial implementation and testing of JWT-secured routes for creating and viewing complaints and creating new payment logs using mock database.
+**Update** Finished initial implementation and testing of JWT-secured routes for creating and viewing complaints and creating new payment logs using mock database.
 
 This backend is being designed to provide secure and easy access to government services via the kiosk to all citizens.
