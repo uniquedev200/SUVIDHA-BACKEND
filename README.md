@@ -1,43 +1,56 @@
 ## Backend Development Status
 
 The SUVIDHA backend is currently in active development.  
-The authentication using goverment-IDs and transport security implementation have been completed,**billing and payment listing routes have now been implemented and tested using mock data sources**.
-
-Completed HTTPS routes and TLS have been tested locally using mkcert certificates
+- The authentication using government-IDs and transport security implementation have been completed
+- Billing and payment listing routes have now been implemented and tested using mock data sources
+- **The payment creation route has been completed along with routes for creation and viewing of complaint.The routes have also been tested using mock data sources**
+- Completed HTTPS routes and TLS have been tested locally using mkcert certificates
 
 ### Completed Work
 
-- **Authentication & Authorization**
-  - OTP-based authentication system
-  - JWT access and refresh token flow
-  - Token-origin flag for sensitive operations
+- **Authentication Service**
+  - Authentication routes fully implemented using JWT-based authentication  
+  - OTP-based user verification flow completed  
+  - JWT access and refresh token lifecycle implemented  
+  - Routes secured using HTTPS and TLS encryption  
+  - Authentication routes locally tested under production-like HTTPS conditions  
+
+- **Authorization & Token Handling**
+  - Token-origin flag implemented for sensitive operations  
+  - Secure token validation via middleware  
 
 - **Route Logic**
-  - Authentication service routes completed
-  - Gateway-compatible routing structure
+  - Gateway-compatible routing structure implemented  
 
 - **Billing & Payments (Initial Implementation)**
-  - Billing list route implemented with status-based filtering
-  - Payment list route implemented with status-based filtering
-  - Secure access enforced via JWT middleware
-  - Routes tested against mock billing and payment data sources
+  - Billing list route implemented with status-based filtering  
+  - Payment list route implemented with status-based filtering  
+  - Payment creation (initiation) route implemented  
+  - Secure access enforced via JWT middleware  
+  - Routes tested against mock billing and payment data sources  
+
+- **Complaints Management (Initial Implementation)**
+  - Complaint creation (registration) route implemented  
+  - Complaint listing/view route implemented  
+  - Secure access enforced via JWT middleware  
+  - Routes tested locally using mock complaint data sources  
 
 - **Cookie & Session Security**
-  - JWTs issued via HttpOnly and Secure cookies
-  - HTTPS-only cookie transmission enforced
+  - JWTs issued via HttpOnly and Secure cookies  
+  - HTTPS-only cookie transmission enforced  
 
 - **HTTPS & TLS Implementation**
-  - HTTPS enabled across backend services
-  - TLS encryption for all API communication
-  - Local HTTPS testing completed using mkcert
-    - Custom local Certificate Authority installed
-    - Trusted localhost certificates generated
+  - HTTPS enabled across backend services  
+  - TLS encryption for all API communication  
+  - Local HTTPS testing completed using mkcert  
+    - Custom local Certificate Authority installed  
+    - Trusted localhost certificates generated  
 
 ### Security Highlights
 
-- Protection against token leakage and XSS
-- Enforced HTTPS to prevent man-in-the-middle attacks
-- Local development mirrors production security behavior
+- Protection against token leakage and XSS  
+- Enforced HTTPS to prevent man-in-the-middle attacks  
+- Local development mirrors production security behavior  
 
 ---
 
@@ -45,19 +58,19 @@ Completed HTTPS routes and TLS have been tested locally using mkcert certificate
 
 The following features are planned and will be developed on top of the existing secure authentication foundation:
 
-- API Gateway with centralized JWT validation
-- Billing and consumption data services
-- Complaint registration and tracking
-- Alerts and notification service
-- Secure payments and receipt generation
-- Document and report retrieval
-- AI microservices for:
-  - Consumption analysis and anomaly detection
-  - Government scheme recommendations
-  - Voice chatbot integration
-- Smart queue estimation and usage analytics
-- Admin monitoring and reporting APIs
-- Caching, monitoring, and Kubernetes-based deployment
+- API Gateway with centralized JWT validation  
+- Billing and consumption data services  
+- Complaint registration and tracking  
+- Alerts and notification service  
+- Secure payments and receipt generation  
+- Document and report retrieval  
+- AI microservices for:  
+  - Consumption analysis and anomaly detection  
+  - Government scheme recommendations  
+  - Voice chatbot integration  
+- Smart queue estimation and usage analytics  
+- Admin monitoring and reporting APIs  
+- Caching, monitoring, and Kubernetes-based deployment  
 
 ---
 
@@ -68,6 +81,7 @@ The following features are planned and will be developed on top of the existing 
 
 ### Complaints Service
 - `GET /complaints/list`
+- `POST /complaints/create`
 
 ### Alerts Service
 - `GET /alerts`
@@ -79,21 +93,24 @@ The following features are planned and will be developed on top of the existing 
 - `GET /reports/list`
 
 ### Payments & Receipts
-- `GET /payment/list?status=`
-- `GET /receipts/fetch`
-- `POST /payment/initiate`
-  
+- `GET /payment/list?status=`  
+- `GET /receipts/fetch`  
+- `POST /payment/initiate`  
+
 ### AI Services
-- `GET /bills/insights/type`
-- `GET /schemes/recommendations`
+- `GET /bills/insights/type`  
+- `GET /schemes/recommendations`  
+
 ---
- ## Conclusion
+
+## Conclusion
 
 The SUVIDHA backend is being developed with a strong focus on security, scalability, and production readiness.  
 
-The secure auth using JWT and otp,HTTPS and TLS have been completed.This ensures a secure access to the kiosk services with any goverment ID and registered phone number using OTP.
+The secure auth using JWT and OTP, HTTPS, and TLS have been completed. This ensures secure access to the kiosk services with any government ID and registered phone number using OTP.
 
-**Update**:Finished initial implementing and testing of JWT-secured bills and payments listing with status-based filtering using mock database
+Finished initial implementing and testing of JWT-secured bills and payments listing with status-based filtering using mock database.
 
-This backend is being designed to try and provide a secure and easy access to goverment services via the kiosk to all citizens
+**Update:**Finished initial implementation and testing of JWT-secured routes for creating and viewing complaints and creating new payment logs using mock database.
 
+This backend is being designed to provide secure and easy access to government services via the kiosk to all citizens.
