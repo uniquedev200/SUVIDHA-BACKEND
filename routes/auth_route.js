@@ -60,7 +60,6 @@ router.get('/generate-otp', async (req,res)=>{
 router.post('/verify-otp',async(req,res)=>{
     let data = req.body;
     let phone = await getRow(data,mapObj);
-    console.log(tempObj);
     if(tempObj[phone] && tempObj[phone] == data.otp){
         delete tempObj[phone];
         const accessLoad = {
@@ -89,7 +88,6 @@ router.post('/verify-otp',async(req,res)=>{
     }
 })
 router.post('/refresh',(req,res)=>{
-    console.log(req.cookies);
     const refresh_token = req.cookies.refresh_token;
     if(!refresh_token){
         return res.status(404).json({

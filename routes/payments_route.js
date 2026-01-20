@@ -98,6 +98,44 @@ async function getPayments(phone){
         console.log(err);
       }
 }
+async function addPayments(inputObj){
+    const query = `
+        INSERT INTO payments (
+            bill_id,
+            transaction_id,
+            payment_method,
+            status
+        )
+        SELECT
+            b.bill_id,
+            $3 AS transaction_id,
+            $4 AS payment_method,
+            $5 AS status
+        FROM users u
+        JOIN service_accounts sa
+            ON sa.user_id = u.id
+        JOIN bills b
+            ON b.account_id = sa.account_id
+        WHERE
+            u.phone_number = $1
+            AND b.bill_id = $2
+        RETURNING payment_id, bill_id, status;
+        `;
+
+    try{
+        let result = await client.query(query,[inputObj.phone,inputObj.bill_id,inputObj.transaction_id,inputObj.payment_method,inputObj.status])
+        let rows = result.rows;
+        if(result.rowCount>0){
+            return rows
+        }
+        else{
+            null;
+        }
+    }catch(err){
+        console.log(err);
+        return null;
+    }
+}
 router.get("/list",authenticateToken,async(req,res)=>{
     const phone = req.user.id;
     const {status} = req.query;
@@ -135,6 +173,24 @@ router.get("/list",authenticateToken,async(req,res)=>{
         res.status(200).json({
             status:"error",
             description:"Invalid parameter value"
+        })
+    }
+})
+router.post('/initiate',authenticateToken,async(req,res)=>{
+    let body = req.body;
+    let phone = req.user.id;
+    body["phone"] = phone;
+    let rows = await addPayments(body);
+    if(!rows){
+        res.status(401).json({
+            status:"error",
+            description:"Error encountered or bill doesnt belong to user"
+        })
+    }
+    else{
+        res.status(200).json({
+            status:"success",
+            data:rows
         })
     }
 })
