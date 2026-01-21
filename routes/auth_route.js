@@ -42,11 +42,19 @@ router.get('/generate-otp', async (req,res)=>{
     let phone = await getRow(data,mapObj);
     if(phone){
         tempObj[phone] = otp;
-        sendOTP(phone,otp);
-        res.status(200).json({
-            status:"success",
-            description:"OTP has been sent successfully"
-        })
+        try{
+            await sendOTP(phone,otp);
+            res.status(200).json({
+                status:"success",
+                description:"OTP has been sent successfully"
+            })
+        }catch(err){
+            res.status(408).json({
+                status:"error",
+                description:"request timed out"
+            })
+        }
+        
     }
     else{
         res.status(404).json({
