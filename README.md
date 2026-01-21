@@ -1,16 +1,18 @@
 ## Backend Development Status
 
 The SUVIDHA backend is currently in active development.  
-- The authentication using government-IDs and transport security implementation have been completed
-- Billing and payment listing routes have now been implemented and tested using mock data sources
-- **The payment creation route has been completed along with routes for creation and viewing of complaint.The routes have also been tested using mock data sources**
-- Completed HTTPS routes and TLS have been tested locally using mkcert certificates
+- The authentication using government-IDs and transport security implementation have been completed  
+- Billing and payment listing routes have now been implemented and tested using mock data sources  
+- The payment creation route has been completed along with routes for creation and viewing of complaint.The routes have also been tested using mock data
+- **The AI-based consumption analysis route has been completed and secured for internal communication using service JWT tokens.The route has also been tested using mock data**  
+- Completed HTTPS routes and TLS have been tested locally using mkcert certificates  
 
 ### Completed Work
 
 - **Authentication Service**
   - Authentication routes fully implemented using JWT-based authentication  
   - OTP-based user verification flow completed  
+  - OTP processing made asynchronous for improved reliability and error handling  
   - JWT access and refresh token lifecycle implemented  
   - Routes secured using HTTPS and TLS encryption  
   - Authentication routes locally tested under production-like HTTPS conditions  
@@ -34,6 +36,14 @@ The SUVIDHA backend is currently in active development.
   - Complaint listing/view route implemented  
   - Secure access enforced via JWT middleware  
   - Routes tested locally using mock complaint data sources  
+
+- **AI-Based Billing Insights (Initial Implementation)**
+  - Bill insights route implemented for consumption analysis  
+  - Linear regression model used for bill amount prediction  
+  - Simple insights model implemented to generate usage-based observations  
+  - AI service hosted on a separate FastAPI microservice  
+  - Service secured using internal JWT-based service tokens  
+  - Internal API communication tested successfully using mock data  
 
 - **Cookie & Session Security**
   - JWTs issued via HttpOnly and Secure cookies  
@@ -80,8 +90,8 @@ The following features are planned and will be developed on top of the existing 
 - `GET /bills/list?status=`
 
 ### Complaints Service
-- `GET /complaints/list`
-- `POST /complaints/create`
+- `GET /complaints/list`  
+- `POST /complaints/create`  
 
 ### Alerts Service
 - `GET /alerts`
@@ -111,6 +121,8 @@ The secure auth using JWT and OTP, HTTPS, and TLS have been completed. This ensu
 
 Finished initial implementing and testing of JWT-secured bills and payments listing with status-based filtering using mock database.
 
-**Update**:Finished initial implementation and testing of JWT-secured routes for creating and viewing complaints and creating new payment logs using mock database.
+Finished initial implementation and testing of JWT-secured routes for creating and viewing complaints and creating new payment logs using mock database.
+
+**Update**: Finished initial implemntation and testing of JWT-secured routes for viewing consumption analysis using mock database 
 
 This backend is being designed to provide secure and easy access to government services via the kiosk to all citizens.
