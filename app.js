@@ -4,6 +4,7 @@ import express from "express";
 import authRouter from "./routes/auth_route.js";
 import billRouter from "./routes/bills_route.js";
 import paymentsRouter from "./routes/payments_route.js";
+import alertsRouter from "./routes/alerts_routes.js";
 import complaintsRouter from "./routes/complaints_route.js"
 import cookieParser from "cookie-parser";
 const app = express();
@@ -14,4 +15,6 @@ app.use('/auth',authRouter);
 app.use('/bills',billRouter);
 app.use('/payments',paymentsRouter);
 app.use('/complaints',complaintsRouter);
+app.use('/alerts',alertsRouter);
+
 export default app;

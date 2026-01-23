@@ -188,7 +188,7 @@ router.post('/initiate',authenticateToken,async(req,res)=>{
         })
     }
     else{
-        res.status(200).json({
+        res.status(401).json({
             status:"success",
             data:rows
         })

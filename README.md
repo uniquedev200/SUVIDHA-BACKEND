@@ -4,7 +4,8 @@ The SUVIDHA backend is currently in active development.
 - The authentication using government-IDs and transport security implementation have been completed  
 - Billing and payment listing routes have now been implemented and tested using mock data sources  
 - The payment creation route has been completed along with routes for creation and viewing of complaint.The routes have also been tested using mock data
-- **The AI-based consumption analysis route has been completed and secured for internal communication using service JWT tokens.The route has also been tested using mock data**  
+- The AI-based consumption analysis route has been completed and secured for internal communication using service JWT tokens.The route has also been tested using mock data
+- **The alerts listing route has been completed and secured with JWT.The route has also been tested using mock data**
 - Completed HTTPS routes and TLS have been tested locally using mkcert certificates  
 
 ### Completed Work
@@ -36,6 +37,11 @@ The SUVIDHA backend is currently in active development.
   - Complaint listing/view route implemented  
   - Secure access enforced via JWT middleware  
   - Routes tested locally using mock complaint data sources  
+
+- **Alerts Management (Initial Implementation)**
+  - Alerts fetching route implemented to retrieve user-specific alerts from the database  
+  - Secure access enforced via JWT middleware  
+  - Routes tested locally using mock alert data sources  
 
 - **AI-Based Billing Insights (Initial Implementation)**
   - Bill insights route implemented for consumption analysis  
@@ -123,6 +129,8 @@ Finished initial implementing and testing of JWT-secured bills and payments list
 
 Finished initial implementation and testing of JWT-secured routes for creating and viewing complaints and creating new payment logs using mock database.
 
-**Update**: Finished initial implemntation and testing of JWT-secured routes for viewing consumption analysis using mock database 
+Finished initial implemntation and testing of JWT-secured routes for viewing consumption analysis using mock database 
+
+**Update**: Finished initial implementation and testing of JWT-secured route for viewing alerts using mock database
 
 This backend is being designed to provide secure and easy access to government services via the kiosk to all citizens.
